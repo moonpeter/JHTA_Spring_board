@@ -1,0 +1,30 @@
+package com.naver.myhome4.task;
+
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
+
+import com.naver.myhome4.service.BoardService;
+
+import jdk.internal.instrumentation.Logger;
+
+@Service
+public class FileCheckTask {
+	
+	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(FileCheckTask.class);
+	
+	// 스케줄러를 이용해서 주기적으로 매일, 매주, 매월 프로그램 실행을 위한 작업을 실시 
+	@Scheduled(fixedDelay=1000) // 밀리세턴드 단위 : 1초 마다 "test"라는 로그가 나타남 
+	public void test() throws Exception{
+		logger.info("test");
+	}
+	
+	@Value("${savefildername}")
+	private String saveFolder;
+	
+	@Autowired
+	private BoardService boardService; 
+	
+}

@@ -1,0 +1,89 @@
+package com.naver.myhome4.service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.naver.myhome4.dao.BoardDAO;
+import com.naver.myhome4.domain.Board;
+
+@Service
+public class BoardServiceImpl implements BoardService {
+
+	@Autowired
+	private BoardDAO dao;
+
+	@Override
+	public int getListCount() {
+		return dao.getListCount();
+	}
+
+	@Override
+	public List<Board> getBoardList(int page, int limit) {
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		int startrow = (page - 1) * limit + 1;
+		int endrow = startrow + limit - 1;
+		map.put("start", startrow);
+		map.put("end", endrow);
+		return dao.getBoardList(map);
+	}
+
+	@Override
+	public Board getDetail(int num) {
+		if(setReadCountUpdate(num)!=1) {
+			return null;
+		}
+		return dao.getDetail(num);
+	}
+
+	@Override
+	public int boardReply(Board board) {
+		boardReplyUpdate(board);
+		board.setBoard_re_lev(board.getBoard_re_lev()+1);
+		board.setBoard_re_seq(board.getBoard_re_seq()+1);
+		return dao.boardReply(board);
+	}
+	
+	@Override
+	public int boardReplyUpdate(Board board) {
+		return dao.boardReplyUpdate(board);
+	}
+
+	@Override
+	public int boardModify(Board modifyboard) {
+		// TODO Auto-generated method stub
+		return dao.boardModify(modifyboard);
+	}
+
+	@Override
+	public int boardDelete(int num) {
+		return dao.boardDelete(num);
+	}
+
+	@Override
+	public int setReadCountUpdate(int num) {
+		return dao.setReadCountUpdate(num);
+	}
+
+	@Override
+	public boolean isBoardWriter(int num, String pass) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("num", num);
+		map.put("pass", pass);
+		Board result = dao.isBoardWriter(map);
+		if(result == null) 
+			return false;
+		else
+			return true;
+	}
+
+	@Override
+	public void insertBoard(Board board) {
+		dao.insertBoard(board);
+	}
+
+
+}

@@ -1,0 +1,26 @@
+package com.naver.myhome4.dao;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.naver.myhome4.domain.Member;
+
+@Repository
+public class MemberDAO {
+
+	@Autowired
+	private SqlSessionTemplate sqlSession;
+
+	public Member isId(String id) {
+		return sqlSession.selectOne("Members.idcheck", id);
+	}
+
+	public int insert(Member m) {
+		return sqlSession.insert("Members.insert", m);
+	}
+
+	public Member member_info(String id) {
+		return sqlSession.selectOne("Members.member_info", id);
+	}
+}

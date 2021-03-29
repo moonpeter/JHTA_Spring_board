@@ -1,0 +1,45 @@
+package com.naver.myhome4.dao;
+
+import java.util.List;
+import java.util.Map;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.naver.myhome4.domain.Member;
+
+@Repository
+public class MemberDAO {
+
+	@Autowired
+	private SqlSessionTemplate sqlSession;
+
+	public Member isId(String id) {
+		return sqlSession.selectOne("Members.idcheck", id);
+	}
+
+	public int insert(Member m) {
+		return sqlSession.insert("Members.insert", m);
+	}
+
+	public Member memberInfo(String id) {
+		return sqlSession.selectOne("Members.idcheck", id);
+	}
+
+	public int update(Member m) {
+		return sqlSession.update("Members.update", m);
+	}
+
+	public int getSearchListCount(Map<String, String> map) {
+		return sqlSession.selectOne("Members.searchCount", map);
+	}
+	
+	public List<Member> getSearchList(Map<String, Object> map) {
+		return sqlSession.selectList("Members.getSearchList", map);
+	}
+
+	public void delete(String id) {
+		sqlSession.delete("Members.delete", id);
+	}
+}

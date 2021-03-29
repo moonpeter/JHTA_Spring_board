@@ -1,0 +1,5 @@
+package com.naver.myhome7.common;
+
+public class BeforeAdvice {
+
+}

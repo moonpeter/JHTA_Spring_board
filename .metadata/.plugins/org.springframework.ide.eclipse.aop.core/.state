@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="JHTA_Spring5_board"/>
+<aop-project name="JHTA_Spring5_1_board"/>
+<aop-project name="JHTA_Spring7_MVC_AOP"/>
+<aop-project name="JTHA_Spring_board"/>
+<aop-project name="Spring3_MVC_annotation"/>
+</aop-reference-model>
