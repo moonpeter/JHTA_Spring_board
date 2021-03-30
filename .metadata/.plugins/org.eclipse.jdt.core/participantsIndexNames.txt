@@ -25,6 +25,8 @@ INDEX VERSION 1.131
 /JHTA_Spring7_MVC_AOP/src/main/java
 /Users/moonpeter/projects/portfolio/sts_springTest/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/4164155230.index
 /JHTA_Spring5_board/src/main/java
+/Users/moonpeter/projects/portfolio/sts_springTest/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/4184646823.index
+/JHTA_Spring9_Chat/src/main/java
 /Users/moonpeter/projects/portfolio/sts_springTest/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/938444159.index
 /JHTA_Spring7_MVC_AOP/src/main/java
 /Users/moonpeter/projects/portfolio/sts_springTest/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/923290387.index

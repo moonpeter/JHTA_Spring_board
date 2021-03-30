@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.naver.myhome4.dao.BoardDAO;
 import com.naver.myhome4.domain.Board;
@@ -31,15 +32,16 @@ public class BoardServiceImpl implements BoardService {
 		return dao.getBoardList(map);
 	}
 
-	@Override
+	@Transactional
 	public Board getDetail(int num) {
 		if(setReadCountUpdate(num)!=1) {
 			return null;
 		}
+		double i = 1/0; // rollback 되는지 확인 
 		return dao.getDetail(num);
 	}
 
-	@Override
+	@Transactional
 	public int boardReply(Board board) {
 		boardReplyUpdate(board);
 		board.setBoard_re_lev(board.getBoard_re_lev()+1);
