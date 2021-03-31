@@ -8,7 +8,6 @@ INDEX VERSION 1.4+/Users/moonpeter/projects/portfolio/sts_springTest/.metadata/.
 393851053.index
 1434662208.index
 1234862559.index
-4184646823.index
 2171570796.index
 3699456665.index
 1287327622.index

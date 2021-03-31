@@ -4,5 +4,26 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+	<bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource" destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="username" value="scott"/>
+		<property name="password" value="TIGER"></property>
+	</bean>
+	
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactory">
+		<property ref="dataSource" name="dataSource"/>
+		<property name="configLocation" value="classpath:util/SqlMapConfig.xml"/>
+	</bean>
+	
+	<!-- SqlSessionTemplate은 마이바티스 스프링 연동모듈의 핵심입니다. 
+		SqlSessionTemplate은 쓰레드에 안전하고 여러개의 DAO나 매퍼에서 공유할 수 있습니다. -->
+	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory" index="0"/>
+	</bean>
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="10485760"/>
+	</bean>
+	
 </beans>
