@@ -1,8 +1,10 @@
-<!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form_modal -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 
@@ -128,49 +130,63 @@ span.psw {
 </head>
 <body>
 
-<h2>Modal Login Form</h2>
-
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-
-<div id="id01" class="modal">
-  
-  <form class="modal-content animate" action="/action_page.php" method="post">
+  <form class="modal-content animate" action="joinProcess" method="post" enctype="multipart/form-data">
     <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="img_avatar2.png" alt="Avatar" class="avatar">
+     <label>
+     	<input type="file" name="uploadfile" accept="image/gif, image/jpeg, image/png" style="display:none">
+     	<img src="resources/image/default.png" alt="Avatar" class="avatar">
+     </label>
     </div>
 
     <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <label for="uname"><b>Username</b><span id="message"></span></label>
+      <input type="text" placeholder="Enter Username" name="id" id="id" required>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" placeholder="Enter Password" name="password" id="password" required>
         
-      <button type="submit">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-    </div>
-
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
+      <button type="submit">회원가입</button>
     </div>
   </form>
-</div>
+    <script>
+        $(function () {
+            var checkid = false;
+            var checkemail = false;
+            $('form').submit(function () {
+                if (!checkid) {
+                    alert("사용 가능한 id로 입력하세요");
+                    $("input:eq(1)").val('').focus();
+                    return false;
+                }
+            });
+            
 
-<script>
-// Get the modal
-var modal = document.getElementById('id01');
+        $("input:eq(1)").on('keyup', function () {
+                checkid = true;
+                $("#message").empty();
+                var pattern = /^\w{4,12}$/;  // \w = [A-Za-z0-9_]
+                var id = $("#id").val();
+                if (!pattern.test(id)) {
+                    $("#message").css('color', 'red').html("영문자 숫자 _로 4~12자 가능합니다.");
+                    checkid = false;
+                    return;
+                }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
-
+                $.ajax({
+                    url: "idcheck",
+                    data: {"id" : id},
+                    success: function (resp) {
+                        if( resp == -1) {
+                            $("#message").css('color', 'green').html("사용가능한 아이디 입니다.");
+                            checkid = true;
+                        } else {
+                            $("#message").css('color', 'blue').html("사용중인 아이디 입니다.");
+                            checkid = false;
+                        }
+                    }
+                })
+            })
+        })
+    </script>
 </body>
 </html>

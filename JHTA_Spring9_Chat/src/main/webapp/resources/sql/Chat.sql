@@ -5,3 +5,5 @@ create table chat(
 	savefile	varchar2(50),
 	originalfile varchar2(30)
 )
+
+select * from chat;

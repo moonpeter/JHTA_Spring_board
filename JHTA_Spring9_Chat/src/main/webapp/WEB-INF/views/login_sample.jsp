@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 
@@ -148,9 +149,6 @@ span.psw {
               onclick="javascript:location.href='join'">회원가입</button>
     </div>
   </form>
-
-
-
 
 </body>
 </html>

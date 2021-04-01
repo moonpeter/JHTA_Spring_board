@@ -12,4 +12,5 @@
 	<select id="idcheck" resultType="member" parameterType="String">
 		select * from chat where id = #{id}
 	</select>
+	
 </mapper>

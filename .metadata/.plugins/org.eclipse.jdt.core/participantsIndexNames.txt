@@ -29,6 +29,8 @@ INDEX VERSION 1.131
 /JHTA_Spring9_Chat/src/main/java
 /Users/moonpeter/projects/portfolio/sts_springTest/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/938444159.index
 /JHTA_Spring7_MVC_AOP/src/main/java
+/Users/moonpeter/projects/portfolio/sts_springTest/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3738518758.index
+/JHTA_Spring9_Chat/src/main/java
 /Users/moonpeter/projects/portfolio/sts_springTest/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/923290387.index
 /JHTA_Spring5_board/src/main/java
 /Users/moonpeter/projects/portfolio/sts_springTest/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/4044095723.index
@@ -59,6 +61,8 @@ INDEX VERSION 1.131
 /JHTA_Spring5_1_board/src/main/java
 /Users/moonpeter/projects/portfolio/sts_springTest/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/578685973.index
 /JTHA_Spring_board/src/main/java
+/Users/moonpeter/projects/portfolio/sts_springTest/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1709909102.index
+/JHTA_Spring9_Chat/src/main/java
 /Users/moonpeter/projects/portfolio/sts_springTest/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3699456665.index
 /JHTA_Spring8_BOARD_AOP_Annotation/src/main/java
 /Users/moonpeter/projects/portfolio/sts_springTest/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/847502373.index
