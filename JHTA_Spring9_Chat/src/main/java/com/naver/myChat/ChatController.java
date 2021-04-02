@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.naver.myChat.bootstrap.domain.Cart;
 import com.naver.myChat.bootstrap.domain.Member;
 import com.naver.myChat.bootstrap.service.IService;
 
@@ -40,6 +41,11 @@ public class ChatController {
 	public String mainPage() {
 		return "project/shop_main";
 	}
+	@GetMapping("detail")
+	public String detailPage() {
+		return "project/shop_detail";
+	}
+	
 	
 	@GetMapping("/login")
 	public String login(HttpSession session) {
@@ -131,6 +137,7 @@ public class ChatController {
 		}
 	} 
 	
+	
 	@PostMapping("/loginProcess")
 	public String  loginProcess(String id, String password, HttpSession session, HttpServletRequest request, RedirectAttributes rattr, Model mv) throws Exception {
 		Map<String, Object> map = memberService.isMember(id, password);
@@ -139,6 +146,12 @@ public class ChatController {
 		
 		if(result ==1) {
 			// 이미 로그인 중에 다시 로그인을 하는 경우 
+			for(Cart cart : EchoHandler.sessionList) {
+				if(cart.getId().equals(id)) {
+					rattr.addFlashAttribute("result", "already");
+					return "redirect:login";
+				}
+			}
 			
 			session.setAttribute("id", id);
 			mv.addAttribute("name", id);

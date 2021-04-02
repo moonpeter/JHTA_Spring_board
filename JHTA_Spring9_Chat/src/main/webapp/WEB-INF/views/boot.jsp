@@ -58,41 +58,68 @@ sup {
 				</ul>
 			</div>
 			<div class="message-input">
-				
+				<div class="wrap">
+					<input type="text" id="write" placeholder="Write your message" />
+					<button class="exit">나가기</button>
+				</div>
 			</div>
 		</div>
 	</div>
 	
 	<script>
-	
-	
-		
 		function newMessage() {
+			var message = $(".message-input input").val();
 			
+			if ($.trim(message) == '') {
+				return false;
+			}
+			
+			output = '<li class="sent">'
+					+ '<img src="resources/upload${filename}" alt="" />'
+					+ '<p></p></li>'
+			$(output).appendTo($('.messages ul'));
+					
+			// 입력한 내용들을 문자영로 변환하기 위해 text()를 이용 
+			$('.messages>ul>li').last().find('p').text(message);
+			
+			$('.message-input input').val('');
+			
+			moveScroll();
 			
 			return message;
 		};
 
 		$('.exit').click(function() {
-			
+			if(confirm("정말로 나가시겠습니까?")) {
+				send("${name}님이 퇴장하셨습니다.out");
+				ws.close();
+			}
 		});
 
 		$(window).on('keyup', function(e) {
-			
+			if(e.which == 13) { // 엔터 
+				var message=newMessage(); // 화면에 보이는 메시지 전송 
+				if(message) { // 메시지가 존재하는 경우
+					send(message); // 소켓에 보내는 메시지 전송 
+				}
+				return false;
+			}
 		});
 
-         var url ;
-         
+		// ws = new WebSocket("ws://localhost:9988/myChat/boot.do?id=${name}&filename=${filename}");
+        var url = "ws://${url}/boot.do?id=${name}&filename=${filename}";
     	ws = new WebSocket(url);        		 
     		
 		//웹 소켓이 연결되었을 때 호출되는 이벤트
 		ws.onopen = function(event) {
 		};
-
-		//서버에서 전송하는 데이터를 받으려면 message이벤트를 구현하면 됩니다.
-		//웹 소켓에서 메시지가 날라왔을 때 호출되는 이벤트입니다.
+		
+		// 서버에서 전송하는 데이터를 받으려면 message이벤트를 구현하면 됩니다. 
+		// 웹 소켓에서 메시지가 날라왔을 때 호출되는 이벤트입니다. 
 		ws.onmessage = function(event) {
-			
+			console.log("받은 데이터 : " + event.data);
+			// java&/2019-7-4/bbs20197499521032.png&님이 퇴장하셨습니다.out 
+			response(event.data);
 		};
 
 		//웹 소켓이 닫혔을 때 호출되는 이벤트입니다.
@@ -105,7 +132,28 @@ sup {
 		}
 
 		function response(text) {
-		
+		// text의 전달 형식 = java&/2019-7-4/bbs20197499521032.png&님이 퇴장하셨습니다.out
+			arr = text.split('&')
+			message = arr[2];
+			var out = "님이 퇴장하셨습니다.out";
+			var inin = "님이 입장하셨습니다.in";
+			
+			// 입장과 퇴장의 경우 css가 가운데로 위치해야 해서 클래스 inout을 이용합니다. 
+			if(message.indexOf(out) > -1 || message.indexOf(inin)>-1 ) {
+				index = message.lastIndexOf('.');
+				output = "<li class='inout'><p></p></li>"
+				message = message.substring(0, index);
+			} else {
+				name = arr[0];
+				filename = arr[1];
+				output = "<li class='replies'>"
+				+ "<img src='resources/upload" + filename + "'>"
+				+ "<sup>" + name + "</sup><p></p></li>"
+			}
+			
+			$("#frame > div.content > div.messages > ul").append(output);
+			$('.messages>ul>li').last().find('p').text(message);
+			
 			moveScroll();
 		}
 		

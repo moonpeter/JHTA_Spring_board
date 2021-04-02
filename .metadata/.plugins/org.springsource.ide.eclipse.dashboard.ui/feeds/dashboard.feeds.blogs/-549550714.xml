@@ -5,7 +5,25 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2021-03-31T16:44:00Z</updated>
+  <updated>2021-04-01T22:56:00Z</updated>
+  <entry>
+    <title>A Bootiful Podcast: SpringFox creator Marty Pitt on Swagger, Vyne and Taxi lang, and much more</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/04/01/a-bootiful-podcast-springfox-creator-marty-pitt-on-swagger-vyne-and-taxi-lang-and-much-more" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2021-04-01:4404</id>
+    <updated>2021-04-01T22:56:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of a &lt;em&gt;A Bootiful Podcast&lt;/em&gt;. In this installment, &lt;a href="https://twitter.com/starbuxman"&gt;Josh Long (@starbuxman)&lt;/a&gt; talks to SpringFox creator and Vyne creator &lt;a href="https://twitter.com/marty_pitt"&gt;Marty Pitt (@marty_pitt)&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Reach &lt;a href="mailto:marty@vyne.co"&gt;Marty by email&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://vyne.co"&gt;Vyne&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://springfox.github.io/springfox/"&gt;SpringFox&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;iframe title="SpringFox creator Marty Pitt on Swagger, Vyne and Taxi lang, and much more" allowtransparency="true" height="150" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=rekyr-ff8335-pb&amp;from=pb6admin&amp;download=1&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Arial&amp;skin=1&amp;btn-skin=7"&gt;&lt;/iframe&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Data 2021.0.0-RC1 and 2020.0.7 released</title>
     <link rel="alternate" href="https://spring.io/blog/2021/03/31/spring-data-2021-0-0-rc1-and-2020-0-7-released" />
@@ -890,74 +908,6 @@ cloud.aws.rds.instances[0].username=user
 &lt;p&gt;Spring Framework &lt;code&gt;5.3.5&lt;/code&gt; includes &lt;a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.5"&gt;39 fixes and improvements&lt;/a&gt; and covers support for JDK 16 (which is scheduled for GA today), in preparation for JDK 17 LTS in September.&lt;/p&gt;
 &lt;p&gt;Stay tuned for follow-up Spring Boot releases later this week.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://projects.spring.io/spring-framework/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-framework/docs/5.3.5/spring-framework-reference"&gt;Documentation&lt;/a&gt;&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Security 5.5.0-M3 Released</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/03/15/spring-security-5-5-0-m3-released" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Eleftheria Stein-Kousathana</name>
-    </author>
-    <id>tag:spring.io,2021-03-15:4383</id>
-    <updated>2021-03-15T10:09:00Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;On behalf of the community, I’m pleased to announce the release of
-Spring Security 5.5.0-M3! You can find the complete details in the &lt;a href="https://github.com/spring-projects/spring-security/releases/tag/5.5.0-M3"&gt;release notes&lt;/a&gt; and the highlights below:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="oauth-2-0"&gt;&lt;a class="anchor" href="#oauth-2-0"&gt;&lt;/a&gt;OAuth 2.0&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-8975-add-bearertokenauthenticationconverter"&gt;&lt;a class="anchor" href="#gh-8975-add-bearertokenauthenticationconverter"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/8975"&gt;gh-8975&lt;/a&gt; - Add BearerTokenAuthenticationConverter&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="saml"&gt;&lt;a class="anchor" href="#saml"&gt;&lt;/a&gt;SAML&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-9317-add-setmetadatafilename-method-to-saml2metadatafilter"&gt;&lt;a class="anchor" href="#gh-9317-add-setmetadatafilename-method-to-saml2metadatafilter"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/9317"&gt;gh-9317&lt;/a&gt; - Add setMetadataFilename method to Saml2MetadataFilter&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-9310-throw-saml2authenticationexception-in-saml2authenticationtokenconverter-on-deflation-or-decoding-error"&gt;&lt;a class="anchor" href="#gh-9310-throw-saml2authenticationexception-in-saml2authenticationtokenconverter-on-deflation-or-decoding-error"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/9310"&gt;gh-9310&lt;/a&gt; - Throw Saml2AuthenticationException in Saml2AuthenticationTokenConverter on deflation or decoding error&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="acl"&gt;&lt;a class="anchor" href="#acl"&gt;&lt;/a&gt;ACL&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-9425-allow-acl-to-be-owned-by-grantedauthoritysid"&gt;&lt;a class="anchor" href="#gh-9425-allow-acl-to-be-owned-by-grantedauthoritysid"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/9425"&gt;gh-9425&lt;/a&gt; - Allow ACL to be owned by GrantedAuthoritySid&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="kotlin"&gt;&lt;a class="anchor" href="#kotlin"&gt;&lt;/a&gt;Kotlin&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-9319-kotlin-dsl-extension-for-rememberme"&gt;&lt;a class="anchor" href="#gh-9319-kotlin-dsl-extension-for-rememberme"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/9319"&gt;gh-9319&lt;/a&gt; - Kotlin DSL extension for rememberMe&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="web"&gt;&lt;a class="anchor" href="#web"&gt;&lt;/a&gt;Web&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-9387-improve-httpsessionsecuritycontextrepository-performance"&gt;&lt;a class="anchor" href="#gh-9387-improve-httpsessionsecuritycontextrepository-performance"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/9387"&gt;gh-9387&lt;/a&gt; - Improve HttpSessionSecurityContextRepository performance&lt;/h5&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="http://projects.spring.io/spring-security/"&gt;Project Site&lt;/a&gt; |
-&lt;a href="https://docs.spring.io/spring-security/site/docs/5.5.0-M3/reference/html5/"&gt;Reference&lt;/a&gt;
-| &lt;a href="http://stackoverflow.com/questions/tagged/spring-security"&gt;Help&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>

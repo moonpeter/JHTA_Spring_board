@@ -1,5 +1,6 @@
 package com.naver.myChat;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,12 +16,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.naver.myChat.bootstrap.domain.Cart;
+
 @Controller
-@ServerEndpoint(value="/echo.do") // 클라이언트가 접속할 서버 주소 
+@ServerEndpoint(value="/boot.do") // 클라이언트가 접속할 서버 주소 
 public class EchoHandler {
 	private static final Logger logger = LoggerFactory.getLogger(EchoHandler.class);
 	
-	private static final List<Session> sessionList = new ArrayList<Session>();
+	static final List<Cart> sessionList = new ArrayList<Cart>();
 		
 	public EchoHandler() {
 		logger.info("웹소켓(서버) 객체생성");
@@ -31,46 +34,63 @@ public class EchoHandler {
 	@OnOpen
 	public void onOpen(Session session) {
 		logger.info("Open session id : " + session.getId());
-		try {
-			// 자신과 연결된 session을 통해 문자열을 보냅니다.(즉, 자기 자신에게만 메시지 전달) 
-			session.getBasicRemote().sendText("Connection Established");
-		} catch (Exception e) {
-			e.printStackTrace();
+		logger.info("session 쿼리 스트링 : " + session.getQueryString());
+		
+		// id=admin&filename=/2020-1-6/bbs2020163195410.png
+		String queryString = session.getQueryString();
+		String id=queryString.substring(queryString.indexOf("=")+1, queryString.indexOf("&"));
+		String filename=queryString.substring(queryString.indexOf("/"));
+		Cart cart = new Cart();
+		cart.setSession(session);
+		cart.setFilename(filename);
+		cart.setId(id);
+		sessionList.add(cart);
+		
+		String message = id + "님이 입장하셨습니다.in";
+		sendAllSessionToMessage(session, message);
+	}
+	
+	// 보낸 사람 정보(id와 파일이름) 구하기 
+	private String getInfo(Session self) {
+		String infomation = "";
+		synchronized (sessionList) {
+			for(Cart cart : EchoHandler.sessionList) {
+				Session s = cart.getSession();
+				if (self.getId().equals(s.getId())) {
+					infomation = cart.getId() + "&" + cart.getFilename();
+					logger.info("보낸 사람의 정보 = " + infomation);
+					break;
+				}
+			}
 		}
-		sessionList.add(session);
+		return infomation;
 	}
 	
 	// 현재의 세션으로 부터 도착한 메시지를 나를 제외한 모든 사용자에게 메시지를 전달함 
-	private void sendAllSessionToMessage(Session self, String sendMessage) {
-		try {
-			for(Session session : EchoHandler.sessionList) {
-				// session 객체들 중에 자기자신을 제외한다.
-				if(!self.getId().equals(session.getId())) {
-					// session을 통해서 메시지를 전송한다.
-					session.getBasicRemote().sendText(sendMessage);
+	private void sendAllSessionToMessage(Session self, String message) {
+		String info = getInfo(self);
+		
+		synchronized (sessionList) {
+			try {
+				for(Cart cart : EchoHandler.sessionList) {
+					Session s = cart.getSession();
+					if(!self.getId().equals(s.getId())) { // 나를 제외한 사람에게 보냅니다. 
+						logger.info("나를 제외한 모든 사람에게 보내는 메시지 : " + info + "&" + message);
+						s.getBasicRemote().sendText(info +  "&" + message); 
+					}
 				}
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+			catch (Exception e) {
+				logger.info("sendAllSessionToMessage 오류 : " + e.getMessage());
+			}
 		}
 	}
 	
 	// @OnMessage 는 클라이언트에게 메시지가 들어왔을 때, 실행되는 메서드 입니다. 
 	// String getMessage에는 jsp의 ws.send()로 보낸 내용이 저장되어 있습니다. 
 	@OnMessage
-	public void onMessage(String getMessage, Session session) {
-		logger.info("onMessage : " + session.getId());
-		logger.info("onMessage : " + getMessage); // 메시지, 보낸사람 
-		int index = getMessage.lastIndexOf(",");
-		String input = getMessage.substring(0, index);
-		String sender = getMessage.substring(index+1);
-		logger.info("Message From " +sender + ": " + input);
-		try {
-			session.getBasicRemote().sendText("나>" + input); // 자신에게 보냅니다. 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		String message = sender + ">" + input;
+	public void onMessage(String message, Session session) {
+		logger.info("Message : " + message);
 		sendAllSessionToMessage(session, message); // 나를 제외한 모든 사람에게 보냅니다. 
 	}
 	
@@ -81,8 +101,20 @@ public class EchoHandler {
 	
 	// @OnClose 는 클라이언트와 웹소켓과의 연결이 끊기면 실행되는 메서드입니다. 
 	@OnClose
-	public void onClose(Session session) {
+	public void onClose(Session session) throws InvocationTargetException {
 		logger.info("Session " + session.getId() + " has ended");
-		sessionList.remove(session);
+		remove(session);
+	}
+	
+	private void remove(Session session) {
+		synchronized (sessionList) {
+			for(int i = 0; i<sessionList.size(); i++) {
+				Session s = sessionList.get(i).getSession();
+				if (session.getId().equals(s.getId())) {
+					sessionList.remove(i);
+					return;
+				}
+			}
+		}
 	}
 }
