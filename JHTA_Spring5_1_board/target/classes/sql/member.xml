@@ -7,17 +7,17 @@
 
 	<select id="idcheck" resultType="member" parameterType="String">
 		select *
-		from member2 where id = #{id}
+		from member3 where id = #{id}
 	</select>
 
 	<insert id="insert" parameterType="member">
-		INSERT INTO member2
+		INSERT INTO member3
 		VALUES
-		(#{id}, #{password}, #{name}, #{age}, #{gender}, #{email})
+		(#{id}, #{password}, #{name}, #{age}, #{gender}, #{email}, #{auth})
 	</insert>
 
 	<update id="update">
-		update member2
+		update member3
 		set id=#{id}, name=#{name}, age=#{age},
 		gender=#{gender}, email=#{email}
 		where id = #{id}
@@ -39,13 +39,13 @@
 	</sql>
 
 	<select id="searchCount" parameterType="map" resultType="int">
-		select count(*) from member2
+		select count(*) from member3
 		where id != 'admin'
 		<include refid="search_"/>
 	</select>
 
 	<select id="getSearchList" parameterType="map" resultType="member">
-		select * from (select rownum rnum, b.* from (select * from member2
+		select * from (select rownum rnum, b.* from (select * from member3
 		where id != 'admin'
 		<include refid="search_"/>
 		order by id
@@ -55,7 +55,7 @@
 	</select>
 	
 	<delete id="delete">
-		delete from member2 where id = #{id}
+		delete from member3 where id = #{id}
 	</delete>
 
 </mapper>

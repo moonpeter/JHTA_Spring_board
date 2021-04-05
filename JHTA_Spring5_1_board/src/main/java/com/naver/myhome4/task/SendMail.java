@@ -26,7 +26,7 @@ public class SendMail {
 	@Value("${sendfile}")
 	private String sendfile;
 	
-	public void sendMail(MailVO vo) {
+	public void sendMail(final MailVO vo) {
 		MimeMessagePreparator mp = new MimeMessagePreparator() {
 			
 			@Override

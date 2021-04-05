@@ -48,6 +48,8 @@
             <input type="submit" class="btn btn-primary" value="등록">
             <input type="button" class="btn btn-danger" value="취소" onclick="history.go(-1)">
         </div>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+        
     </form>
 
 </div>

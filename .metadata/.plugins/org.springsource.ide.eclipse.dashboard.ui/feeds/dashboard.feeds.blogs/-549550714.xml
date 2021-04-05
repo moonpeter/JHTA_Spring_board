@@ -7,21 +7,21 @@
   <icon>https://spring.io/favicon.ico</icon>
   <updated>2021-04-01T22:56:00Z</updated>
   <entry>
-    <title>A Bootiful Podcast: SpringFox creator Marty Pitt on Swagger, Vyne and Taxi lang, and much more</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/04/01/a-bootiful-podcast-springfox-creator-marty-pitt-on-swagger-vyne-and-taxi-lang-and-much-more" />
+    <title>A Bootiful Podcast: Swagger-SpringMVC creator Marty Pitt on SpringFox, Swagger, Vyne and Taxi lang, and much more</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/04/01/a-bootiful-podcast-swagger-springmvc-creator-marty-pitt-on-springfox-swagger-vyne-and-taxi-lang-and-much-more" />
     <category term="engineering" label="Engineering" />
     <author>
       <name>Josh Long</name>
     </author>
     <id>tag:spring.io,2021-04-01:4404</id>
     <updated>2021-04-01T22:56:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of a &lt;em&gt;A Bootiful Podcast&lt;/em&gt;. In this installment, &lt;a href="https://twitter.com/starbuxman"&gt;Josh Long (@starbuxman)&lt;/a&gt; talks to SpringFox creator and Vyne creator &lt;a href="https://twitter.com/marty_pitt"&gt;Marty Pitt (@marty_pitt)&lt;/a&gt;.&lt;/p&gt;
+    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of a &lt;em&gt;A Bootiful Podcast&lt;/em&gt;. In this installment, &lt;a href="https://twitter.com/starbuxman"&gt;Josh Long (@starbuxman)&lt;/a&gt; talks to Swagger-SpringMVC (which eventually became SpringFox) creator and Vyne creator &lt;a href="https://twitter.com/marty_pitt"&gt;Marty Pitt (@marty_pitt)&lt;/a&gt;.&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Reach &lt;a href="mailto:marty@vyne.co"&gt;Marty by email&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="http://vyne.co"&gt;Vyne&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="https://springfox.github.io/springfox/"&gt;SpringFox&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;iframe title="SpringFox creator Marty Pitt on Swagger, Vyne and Taxi lang, and much more" allowtransparency="true" height="150" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=rekyr-ff8335-pb&amp;from=pb6admin&amp;download=1&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Arial&amp;skin=1&amp;btn-skin=7"&gt;&lt;/iframe&gt;
+&lt;iframe title="Swagger-SpringMVC creator Marty Pitt on Swagger, Vyne and Taxi lang, and much more" allowtransparency="true" height="150" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=rekyr-ff8335-pb&amp;from=pb6admin&amp;download=1&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Arial&amp;skin=1&amp;btn-skin=7"&gt;&lt;/iframe&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
   <entry>

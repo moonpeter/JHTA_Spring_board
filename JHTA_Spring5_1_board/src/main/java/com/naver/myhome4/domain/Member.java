@@ -8,6 +8,8 @@ public class Member {
 	private String gender;
 	private String email;
 	
+	private String auth="role_member";
+	
 	
 	public String getId() {
 		return id;
@@ -44,6 +46,12 @@ public class Member {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getAuth() {
+		return auth;
+	}
+	public void setAuth(String auth) {
+		this.auth = auth;
 	}
 	
 	

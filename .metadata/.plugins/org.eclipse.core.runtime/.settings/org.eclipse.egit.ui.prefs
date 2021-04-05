@@ -1,2 +1,9 @@
-commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\n<messages>\n<message>init commit</message>\n</messages>
+//BranchProjectTracker__/Users/moonpeter/git/JHTA_PetMatcing/.git_main=<?xml version\="1.0" encoding\="UTF-8"?>\n<projects>\n<project>/JHTA_PetMatching</project>\n<project>/</project>\n</projects>
+//BranchProjectTracker__/Users/moonpeter/git/JHTA_PetMatcing/.git_mkh_branch=<?xml version\="1.0" encoding\="UTF-8"?>\n<projects>\n<project>/JHTA_PetMatching</project>\n</projects>
+//BranchProjectTracker__/Users/moonpeter/projects/portfolio/JHTA_PetMatcing/.git_main=<?xml version\="1.0" encoding\="UTF-8"?>\n<projects>\n<project>/JHTA_PetMatching</project>\n</projects>
+CloneWizard_ImportProjects=true
+commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\n<messages>\n<message>\uD504\uB85C\uC81D\uD2B8 \uC0DD\uC131(\uCD08\uAE30 \uC124\uC815 \uC804)</message>\n<message>header.jsp \uCD94\uAC00 \uBC0F \uD300\uC6D0 \uACF5\uC720 \uD14C\uC2A4</message>\n<message>\uCD08\uAE30 \uD504\uB85C\uC81D\uD2B8 \uC124\uC815</message>\n<message>\uD504\uB85C\uC81D\uD2B8 \uC0DD\uC131</message>\n<message>init commit</message>\n</messages>
 eclipse.preferences.version=1
+resourcehistory_graph_split=500,500
+resourcehistory_rev_split=700,300
+show_running_launch_on_checkout_warning=false

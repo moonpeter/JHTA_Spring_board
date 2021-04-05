@@ -2,6 +2,7 @@ package com.naver.myChat;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.websocket.OnClose;
@@ -23,7 +24,7 @@ import com.naver.myChat.bootstrap.domain.Cart;
 public class EchoHandler {
 	private static final Logger logger = LoggerFactory.getLogger(EchoHandler.class);
 	
-	static final List<Cart> sessionList = new ArrayList<Cart>();
+	public static final List<Cart> sessionList = Collections.synchronizedList(new ArrayList<Cart>());
 		
 	public EchoHandler() {
 		logger.info("웹소켓(서버) 객체생성");
