@@ -1,17 +1,14 @@
 INDEX VERSION 1.4+/Users/moonpeter/projects/portfolio/sts_springTest/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
 3304402696.index
 4184646823.index
-45867355.index
 3845375641.index
 286378089.index
 3204015572.index
-3533731714.index
 2150224855.index
 3244540701.index
 4149004756.index
 1280904468.index
 1234862559.index
-1724733058.index
 564563718.index
 524537832.index
 3288329902.index

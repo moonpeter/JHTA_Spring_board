@@ -8,7 +8,7 @@ public class Member {
 	private String gender;
 	private String email;
 	
-	private String auth="role_member";
+	private String auth="ROLE_MEMBER";
 	
 	
 	public String getId() {

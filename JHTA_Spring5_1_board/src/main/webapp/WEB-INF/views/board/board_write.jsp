@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
     <jsp:include page="header.jsp"/>
@@ -34,7 +35,8 @@
 
         <div class="form-group">
             <label for="board_name">글쓴이</label>
-            <input name="board_name" id="board_name" value="${id}" readonly
+          	<sec:authentication property="principal" var="pinfo"/>
+            <input name="board_name" id="board_name" value="${pinfo.username}" readonly
                    type="text" maxlength="30" class="form-control" placeholder="Enter board_name">
         </div>
 
@@ -67,8 +69,7 @@
             <button type="submit" class="btn btn-primary">등록</button>
             <button type="reset" class="btn btn-danger">취소</button>
         </div>
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-        
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token }">
     </form>
 </div>
 

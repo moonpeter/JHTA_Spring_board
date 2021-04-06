@@ -15,5 +15,5 @@ create table member3(
 select * from member3;
 
 update member3
-set auth='role_admin'
+set auth='ROLE_ADMIN'
 where id = 'admin';

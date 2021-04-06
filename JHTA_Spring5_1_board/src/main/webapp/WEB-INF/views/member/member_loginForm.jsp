@@ -93,14 +93,16 @@
         }
     </style>
     <script>
-   		var result="${result}";
-   		if(result == 'joinSuccess'){
-   			alert("회원 가입을 축하합니다.")
-   		}else if(result =='0'){
-   			alert("비밀번호가 일치하지 않습니다.")
-   		}else if(result =='-1'){
-   			alert("아이디가 존재하지 않습니다.")
-   		}
+    
+	    var result ="${result}";
+		if(result =='joinSuccess') {
+			alert("회원가입을 축하합니다.")
+		}
+		
+		result ="${loginFailMsg}"
+			if(result) {
+			alert(result);
+		}
    		
         $(function (){
             $(".join").click(function (){
@@ -124,17 +126,14 @@
         <p id="result"></p>
     </div>
     <div class="form-group">
-        <label for="pass">Password:</label>
+        <label for="pass">Password:
         <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+        </label>
+        
+   		<input type="checkbox" name="remember-me" id="remember-me" style="margin-bottom:15px">
+   		로그인 유지하기     
     </div>
-    <div>
-        <input type="checkbox" name="remember" style="margin-bottom:15px"
-        	<c:if test="${!empty saveid }">
-        		checked
-       		</c:if>
-        >
-        <span>remember</span>
-    </div>
+   
     <div class="clearfix">
         <button type="submit" class="submitbtn">로그인</button>
         <button type="reset" class="join">회원가입</button>

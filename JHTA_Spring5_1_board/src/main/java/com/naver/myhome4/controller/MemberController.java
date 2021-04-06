@@ -1,6 +1,7 @@
 package com.naver.myhome4.controller;
 
 import java.io.PrintWriter;
+import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
@@ -84,14 +85,14 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public ModelAndView login(ModelAndView mv, @CookieValue(value = "saveid", required = false) Cookie readCookie)
-			throws Exception {
+	public String login(ModelAndView mv, @CookieValue(value = "remember-me", required = false) Cookie readCookie, Model model, HttpSession session, Principal principal) {
+		model.addAttribute("loginFailMsg", session.getAttribute("loginFailMsg"));
+		session.removeAttribute("loginFailMsg");
 		if (readCookie != null) {
-			mv.addObject("saveid", readCookie.getValue());
-			logger.info("cookie time=" + readCookie.getMaxAge());
+			logger.info("저장된 아이디" + principal.getName());
+			return "redirect:/board/list";
 		}
-		mv.setViewName("member/member_loginForm");
-		return mv;
+		return "member/member_loginForm";
 	}
 
 //	@RequestMapping(value = "/loginProcess", method = RequestMethod.POST)
@@ -202,7 +203,7 @@ public class MemberController {
 		return "redirect:list";
 	}
 	
-	@GetMapping("/logout")
+//	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "redirect:login";

@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <html>
 <head>
@@ -29,7 +30,8 @@
         <h1>MVC 게시판 - Reply</h1>
         <div class="form-group">
             <label for="board_name">글쓴이</label>
-            <input name="board_name" id="board_name" type="text" value="${id}" class="form-control" readonly>
+           	<sec:authentication property="principal" var="pinfo"/>           
+            <input name="board_name" id="board_name" type="text" value="${pinfo.username}" class="form-control" readonly>
         </div>
         <div class="form-group">
             <label for="board_subject">제목</label>

@@ -10,12 +10,37 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 	
 	<security:http>
-		<security:form-login login-page="/member/login"
-										default-target-url="/board/list"
-										login-processing-url="/member/loginProcess"
-										username-parameter="id"
-										password-parameter="password"
-										/>
+	
+	<security:intercept-url pattern="/resources/**/**" access="permitAll"/>
+	<security:intercept-url pattern="/member/login" access="permitAll"/>
+	<security:intercept-url pattern="/member/join" access="permitAll"/>
+	<security:intercept-url pattern="/member/idcheck" access="permitAll"/>
+	<security:intercept-url pattern="/member/joinProcess" access="permitAll"/>
+	<security:intercept-url pattern="/member/list" access="hasRole('ROLE_ADMIN')"/>
+	<security:intercept-url pattern="/**" access="hasAnyRole('ROLE_MEMBER', 'ROLE_ADMIN')"/>
+	
+		<security:form-login 	login-page="/member/login"
+								default-target-url="/board/list"
+								login-processing-url="/member/loginProcess"
+								username-parameter="id"
+								password-parameter="password"
+								authentication-failure-handler-ref="loginFailHandler"
+								/>
+								
+	<security:access-denied-handler ref="customAccessDeniedHandler"/>							
+	
+	<security:remember-me 
+			data-source-ref="dataSource"
+			remember-me-parameter="remember-me"
+			remember-me-cookie="remember-me"
+			token-validity-seconds="2419200"/>
+	
+	<security:logout 
+			logout-success-url="/member/login"
+			logout-url="/member/logout"
+	 		invalidate-session="true"
+			delete-cookies="true"/>
+	
 	</security:http>
 	
 	<security:authentication-manager>
@@ -25,5 +50,4 @@
 	</security:authentication-manager>
 	
 	<context:component-scan base-package="com.naver.myhome4.security"/>
-	
 </beans>

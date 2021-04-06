@@ -1,16 +1,13 @@
 INDEX VERSION 1.131+/Users/moonpeter/projects/portfolio/sts_springTest/.metadata/.plugins/org.eclipse.jdt.core
-927553478.index
-1039297199.index
-1280904468.index
-3605730161.index
 3128884767.index
+927553478.index
+3605730161.index
 4287537894.index
-286378089.index
-933497537.index
-1434662208.index
-4022116189.index
-1784043706.index
+1039297199.index
 1234862559.index
-3662485452.index
 3142906813.index
-1697893806.index
+1784043706.index
+4022116189.index
+286378089.index
+1280904468.index
+1434662208.index
